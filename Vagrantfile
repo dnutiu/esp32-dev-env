@@ -54,6 +54,7 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--usbehci", "on"]
     vb.customize ["usbfilter", "add", "0", 
       "--target", :id,
+      "--name", "CP2102 USB to UART Bridge Controller",
       "--vendorid","0x10c4",
       "--productid","0xea60"
       ]
@@ -70,6 +71,7 @@ Vagrant.configure("2") do |config|
   
   sudo apt-get update
   sudo apt-get install gcc git wget make libncurses-dev flex bison gperf python python-serial
+  sudo apt-get install linux-image-extra-virtual
 
   wget https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
   
